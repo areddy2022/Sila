@@ -50,6 +50,7 @@ sila launch cluster
 # optionally name it
 sila launch cluster -n my-cluster
 ```
+You can check the cluster status by using `pcluster list-clusters`!
 
 ### Commands
 
