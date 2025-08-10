@@ -72,6 +72,7 @@ Scheduling:
         OnNodeConfigured:
           Sequence:
             - Script: 'https://raw.githubusercontent.com/aws-samples/aws-parallelcluster-post-install-scripts/main/docker/postinstall.sh'
+            - Script: 'https://raw.githubusercontent.com/areddy2022/Sila/refs/heads/main/scripts/source.sh'
 SharedStorage:
   - MountDir: /fsx
     Name: fsx
