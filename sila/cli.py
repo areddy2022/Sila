@@ -74,8 +74,8 @@ def show(item):
 )
 @click.option(
     "--compute-node-type",
-    prompt="The type of compute nodes that the capacity reservation is for\n0: A100s (40gb) -> p4d.24xlarge\n1: A100s (80gb) -> p4de.24xlarge\n2: H100s (80gb) -> p5d.48xlarge\n3: H200s (144gb) -> p5de.48xlarge\nEnter your compute node type:",
-    help="The type of compute nodes that the capacity reservation is for\n0: A100s (40gb) -> p4d.24xlarge\n1: A100s (80gb) -> p4de.24xlarge\n2: H100s (80gb) -> p5d.48xlarge\n3: H200s (144gb) -> p5de.48xlarge",
+    prompt="The type of compute nodes that the capacity reservation is for\n0: A100s (40gb) -> p4d.24xlarge\n1: A100s (80gb) -> p4de.24xlarge\n2: H100s (80gb) -> p5d.48xlarge\n3: H200s (144gb) -> p5en.48xlarge\n4: B200s -> p6-b200.48xlarge\nEnter your compute node type:",
+    help="The type of compute nodes that the capacity reservation is for\n0: A100s (40gb) -> p4d.24xlarge\n1: A100s (80gb) -> p4de.24xlarge\n2: H100s (80gb) -> p5d.48xlarge\n3: H200s (144gb) -> p5en.48xlarge\n4: B200s -> p6-b200.48xlarge",
 )
 @click.option(
     "--number-of-compute-nodes",
@@ -116,7 +116,9 @@ def configure(
         elif compute_node_type == "2":
             cluster_info["compute_node_type"] = "p5d.48xlarge"
         elif compute_node_type == "3":
-            cluster_info["compute_node_type"] = "p5de.48xlarge"
+            cluster_info["compute_node_type"] = "p5en.48xlarge"
+        elif compute_node_type == "4":
+            cluster_info["compute_node_type"] = "p6-b200.48xlarge"
         else:
             click.echo("Invalid compute node type")
             return
