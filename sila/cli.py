@@ -2,6 +2,7 @@ import click
 import subprocess
 import os
 from string import Template
+from importlib import resources
 
 PLATFORM_CONFIGS = {
     "aws": ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_DEFAULT_REGION"],
@@ -120,7 +121,7 @@ def configure(
             click.echo("Invalid compute node type")
             return
 
-        with open("template.yaml", "r") as file:
+        with resources.open_text("sila", "template.yaml") as file:
             template_content = file.read()
 
         template = Template(template_content)
@@ -152,7 +153,7 @@ def deploy(item, cluster_name):
         if cluster_name is None:
             cluster_name = "cluster"
         subprocess.run(
-            ["pcluster", "create-cluster", "config.yaml", "-n", cluster_name],
+            ["pcluster", "create-cluster", "-c", "config.yaml", "-n", cluster_name],
             check=True,
         )
     elif item == "subnet":

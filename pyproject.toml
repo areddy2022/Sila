@@ -7,7 +7,11 @@ authors = [{ name = "Abhinav Reddy" }]
 license = { text = "Apache-2.0" }
 requires-python = ">=3.8"
 classifiers = ["License :: OSI Approved :: Apache Software License"]
-dependencies = ["click", "awscli", "aws-parallelcluster"]
+dependencies = [
+ "click",
+ "awscli",
+ "aws-parallelcluster",
+]
 
 [project.urls]
 Homepage = "https://github.com/deepsilicon/Sila"
@@ -17,6 +21,10 @@ CI = "https://github.com/deepsilicon/Sila/actions"
 
 [tool.setuptools]
 packages = ["sila"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+sila = ["template.yaml"]
 
 [project.scripts]
 sila = "sila.cli:cli"

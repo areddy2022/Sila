@@ -1,0 +1,4 @@
+build/
+uv.lock
+sila.egg-info/
+sila/__pycache__/
