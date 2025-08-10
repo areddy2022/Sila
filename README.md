@@ -39,7 +39,7 @@ You will be asked for:
 - security key (name of your `.pem` file)
 - public and private subnet IDs
 - capacity reservation ID
-- compute node type (0: p4d.24xlarge, 1: p4de.24xlarge, 2: p5d.48xlarge, 3: p5de.48xlarge)
+- compute node type (0: p4d.24xlarge, 1: p4de.24xlarge, 2: p5d.48xlarge, 3: p5en.48xlarge, 4: p6-b200.48xlarge)
 - number of compute nodes
 
 This generates `config.yaml` in the directory you run the command from.
